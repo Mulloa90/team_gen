@@ -1,0 +1,28 @@
+{
+  "name": "team_gen",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "jest --verbose test/*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mulloa90/team_gen.git"
+  },
+  "author": "Mario",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mulloa90/team_gen/issues"
+  },
+  "homepage": "https://github.com/Mulloa90/team_gen#readme",
+  "dependencies": {
+    "inquirer": "^9.1.0",
+    "jest": "^28.1.3"
+  },
+  "type": "module"
+
+}
