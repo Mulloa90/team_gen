@@ -1,4 +1,4 @@
-import Engineer from "../lib/Engineer";
+const Engineer = require("../lib/Engineer");
 
 test("github", () => {
   const testGithub = "mulloa90";
@@ -12,7 +12,7 @@ test("test github", () => {
 });
 
 test("test role", () => {
-  const returnValue = "Employee";
+  const returnValue = "Engineer";
   const emp = new Engineer("Mario", 2, "mario90gm@icloud.com", "Mulloa90");
   expect(emp.getRole()).toBe(returnValue);
 });

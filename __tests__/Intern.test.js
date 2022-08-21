@@ -1,4 +1,4 @@
-import Intern from "../lib/Intern";
+const Intern = require("../lib/Intern");
 
 test("Create School", () => {
   const testSchool = "School Name";

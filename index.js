@@ -9,6 +9,7 @@ function init() {
     })
     .then((response) => {
       if (response.member === "Manager") askManagerQuestions();
+      else  (response.member === "Engineer") askEngineerQuestions();
     });
 }
 init();
@@ -35,7 +36,7 @@ function askManagerQuestions() {
   inquirer.prompt(managerQuestions);
 }
 
-const eQuestions = [
+const engineerQuestions = [
   {
     type: "input",
     name: "Engineer name",
@@ -63,7 +64,7 @@ const eQuestions = [
   },
 ];
 function askEngineerQuestions() {
-  inquirer.prompt(eQuestions);
+  inquirer.prompt(engineerQuestions);
 }
 const internQuestions = [
   { type: "input", name: "Intern name", message: "What is the Intern Name" },

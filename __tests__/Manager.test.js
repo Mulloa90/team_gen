@@ -1,4 +1,4 @@
-import Manager from "../lib/Manager";
+const Manager = require("../lib/Manager");
 
 
 test("test office number.", () => {
@@ -13,7 +13,7 @@ test("test get office number.", () => {
 });
 
 test("test role", () => {
-    const returnValue = "Employee";
-    const emp = new Engineer("Mario", 2, "mario90gm@icloud.com", "Mulloa90");
+    const returnValue = "Manager";
+    const emp = new Manager("Mario", 2, "mario90gm@icloud.com", "Mulloa90");
     expect(emp.getRole()).toBe(returnValue)
 });
