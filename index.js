@@ -1,15 +1,23 @@
 import inquirer from "inquirer";
+// const inquirer = require('inquirer')
+// const Manager = require('./lib/Manager')
+import Manager from "./lib/Manager.cjs";
+import Engineer from "./lib/Engineer.cjs";
+import Intern from "./lib/Intern.cjs";
+var teamArray = [];
+
 function init() {
   inquirer
     .prompt({
       type: "list",
       name: "member",
       message: "What type of employee would you like to add",
-      choices: ["Employee", "Engineer", "Intern", "Manager"],
+      choices: ["Engineer", "Intern", "Manager"],
     })
     .then((response) => {
       if (response.member === "Manager") askManagerQuestions();
-      else  (response.member === "Engineer") askEngineerQuestions();
+      else if (response.member === "Engineer") askEngineerQuestions();
+      else if (response.member === "Intern") askInternQuestions();
     });
 }
 init();
@@ -33,7 +41,17 @@ const managerQuestions = [
   },
 ];
 function askManagerQuestions() {
-  inquirer.prompt(managerQuestions);
+  inquirer.prompt(managerQuestions).then((response) => {
+    teamArray.push(
+      new Manager(
+        response["manager name"],
+        response["manager ID"],
+        response["manager Email"],
+        response["manager Office number"]
+      )
+    );
+    askTeamQuestion();
+  });
 }
 
 const engineerQuestions = [
@@ -57,14 +75,19 @@ const engineerQuestions = [
     name: "Engineer Github",
     message: "What is your Github username",
   },
-  {
-    type: "input",
-    name: "Engineer Office number",
-    message: "What is the managers Office Number",
-  },
 ];
 function askEngineerQuestions() {
-  inquirer.prompt(engineerQuestions);
+  inquirer.prompt(engineerQuestions).then((response) => {
+    teamArray.push(
+      new Engineer(
+        response["Engineer name"],
+        response["Engineer ID"],
+        response["Engineer Email"],
+        response["Engineer Github"]
+      )
+    );
+    askTeamQuestion();
+  });
 }
 const internQuestions = [
   { type: "input", name: "Intern name", message: "What is the Intern Name" },
@@ -85,5 +108,27 @@ const internQuestions = [
   },
 ];
 function askInternQuestions() {
-  inquirer.prompt(internQuestions);
+  inquirer.prompt(internQuestions).then((response) => {
+    teamArray.push(
+      new Intern(
+        response["Intern name"],
+        response["Intern ID"],
+        response["Intern Email"],
+        response["Intern's School"]
+      )
+    );
+    askTeamQuestion();
+  });
+}
+function askTeamQuestion() {
+  inquirer
+    .prompt({
+      type: "confirm",
+      name: "Team questions",
+      message: "Would you like to add another employee?",
+    })
+    .then((response) => {
+      if (response["Team questions"]) init();
+      else console.log(teamArray);
+    });
 }
