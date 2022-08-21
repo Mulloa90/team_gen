@@ -32,7 +32,57 @@ const managerQuestions = [
   },
 ];
 function askManagerQuestions() {
-inquirer.prompt(managerQuestions)
-
+  inquirer.prompt(managerQuestions);
 }
 
+const eQuestions = [
+  {
+    type: "input",
+    name: "Engineer name",
+    message: "What is the Engineer Name",
+  },
+  {
+    type: "input",
+    name: "Engineer ID",
+    message: "What is the Engineer's ID number",
+  },
+  {
+    type: "input",
+    name: "Engineer Email",
+    message: "What is the Engineer's Email Address",
+  },
+  {
+    type: "input",
+    name: "Engineer Github",
+    message: "What is your Github username",
+  },
+  {
+    type: "input",
+    name: "Engineer Office number",
+    message: "What is the managers Office Number",
+  },
+];
+function askEngineerQuestions() {
+  inquirer.prompt(eQuestions);
+}
+const internQuestions = [
+  { type: "input", name: "Intern name", message: "What is the Intern Name" },
+  {
+    type: "input",
+    name: "Intern ID",
+    message: "What is the Intern's ID number",
+  },
+  {
+    type: "input",
+    name: "Intern Email",
+    message: "What is the Intern's Email Address",
+  },
+  {
+    type: "input",
+    name: "Intern's School",
+    message: "What school are you attending",
+  },
+];
+function askInternQuestions() {
+  inquirer.prompt(internQuestions);
+}
