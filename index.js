@@ -1,9 +1,17 @@
 import inquirer from "inquirer";
-// const inquirer = require('inquirer')
-// const Manager = require('./lib/Manager')
-import Manager from "./lib/Manager.cjs";
-import Engineer from "./lib/Engineer.cjs";
-import Intern from "./lib/Intern.cjs";
+import Manager from "./lib/Manager.js";
+import Engineer from "./lib/Engineer.js";
+import Intern from "./lib/Intern.js";
+import { generateHtml } from "./src/team.js";
+import fs from "fs";
+import path from "path";
+
+//const inquirer = require('inquirer');
+//const Manager = require('./lib/Manager');
+//onst Engineer = require('./lib/Engineer');
+//const Intern = require('./lib/Intern');
+//const generateHtml = require('./src/team')
+//const fs = require("fs");
 var teamArray = [];
 
 function init() {
@@ -18,7 +26,8 @@ function init() {
       if (response.member === "Manager") askManagerQuestions();
       else if (response.member === "Engineer") askEngineerQuestions();
       else if (response.member === "Intern") askInternQuestions();
-    });
+    })
+  
 }
 init();
 
@@ -129,6 +138,21 @@ function askTeamQuestion() {
     })
     .then((response) => {
       if (response["Team questions"]) init();
-      else console.log(teamArray);
+      else createHtml(teamArray);
     });
+}
+//function writeToFile(fileName, data) {
+  //return fs.writeFileSync(path.join(process.cwd(), fileName), data);
+//}
+
+function writeToFile() {
+  return fs.writeFileSync(path.join(process.cwd()));
+}
+
+
+
+function createHtml(team) {
+  console.log("Creating Team...")
+writeToFile("index.html",generateHtml(team));
+
 }
