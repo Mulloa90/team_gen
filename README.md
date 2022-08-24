@@ -13,6 +13,8 @@ run by entering node index.js in the terminal.
 w3schools.com Udemy.com Youtube.com MDN.
 <h2>Features:</h2>
 Javascript, node, inquirer
+<h2>Video Link</h2>
+https://drive.google.com/file/d/1LfwUBC72oi7MrSVOC6xZwXbY909rSSlz/view
 <h2>Screenshot</h2>
 
 ![Screen Shot 2022-08-23 at 8 30 50 PM](https://user-images.githubusercontent.com/102636855/186322580-3dbbec2c-b292-4bac-ab1d-0943f16f8375.png)
